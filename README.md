@@ -22,6 +22,14 @@ The versatile note-taking app designed for seamless organization, collaboration,
   ```
 
 ### TODO 
+- [x] install basic dependency and initial setup
 - [ ] add redux store
+  - [x] add note reducer
+  - [ ] update note reducer
+  - [ ] delete note reducer
+- [ ] add components
+  - [ ] new note
+  - [ ] notes list
 - [ ] add basic editor from novel.sh
-- [ ] enable local storage to keep track of previous notes
+- [ ] enable local storage to keep track for persistence
+- [ ] add favicon and logo
