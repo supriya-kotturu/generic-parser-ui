@@ -8,7 +8,7 @@ const notesSlice = createSlice({
   name: "todos",
   initialState: defaultNotes,
   reducers: {
-    noteAdded(state, action) {
+    noteAdded(state, action: { payload: Note; type: string }) {
       state.push({
         id: action.payload.id,
         title: action.payload.title,
@@ -21,6 +21,6 @@ const notesSlice = createSlice({
 
 export const { noteAdded } = notesSlice.actions;
 
-export const selectNotes = (state: RootState) => state.notes.values;
+export const selectNotes = (state: RootState) => state.notes;
 
 export default notesSlice.reducer;
