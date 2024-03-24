@@ -1,16 +1,26 @@
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { addNote } from "./store/features/notes/noteSlice";
 import reactLogo from "./assets/react.svg";
+import NoteForm from "./components/NoteForm";
+import NotesList from "./components/NotesList";
 import "./App.css";
-import { noteAdded } from "./store/features/notes/noteSlice";
 
 function App() {
+  const [showNoteForm, setShowNoteForm] = useState(false);
   const dispatch = useAppDispatch();
   const notes = useAppSelector((state) => state.notes);
+
+  const createNote = ({ title, content }: { title: string; content: string }) =>
+    dispatch(addNote({ title, content }));
 
   console.log({ notes });
 
   return (
     <>
+      <div onClick={() => setShowNoteForm(true)}>+</div>
+      {showNoteForm && <NoteForm onCreate={createNote} />}
+      {notes && <NotesList notes={notes} />}
       <div>
         <a href="https://vitejs.dev" target="_blank"></a>
         <a href="https://react.dev" target="_blank">
@@ -22,10 +32,8 @@ function App() {
         <button
           onClick={() =>
             dispatch(
-              noteAdded({
+              addNote({
                 title: "Work day tasks",
-                id: "9029",
-                date: new Date(),
                 content: "<p>test content</p>",
               }),
             )
