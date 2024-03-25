@@ -20,7 +20,7 @@ const NotesList = ({ notes }: NotesListProps) => {
   }) => dispatch(updateNote({ id, title, content }));
 
   console.log({ notes, editNote });
-  return <div>Enter</div>;
+  return <div>list</div>;
 };
 
 export default NotesList;
