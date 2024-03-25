@@ -1,6 +1,6 @@
 # Notebook
 
-The versatile note-taking app designed for seamless organization, collaboration, and creativity. With flexible notes, robust organization, effortless collaboration, and stringent security, Notebook is your all-in-one digital workspace. Elevate your productivity with Notebook today!
+The versatile note-taking app designed for seamless organization, collaboration, and creativity. With flexible notes, robust organization, effortless collaboration, and stringent security, Notebook is your all-in-one digital workspace. Elevate your productivity with [Notebook](https://quick-notebook.netlify.com) today!
 
 ## Getting started
 
@@ -31,10 +31,12 @@ The versatile note-taking app designed for seamless organization, collaboration,
 - [ ] add components
   - [x] new note
   - [ ] notes list
+  - [ ] note form
+  - [ ] note
 - [ ] add tipTap editor
   - [x] add basic editor from novel.sh
   - [ ] add styles
   - [ ] enable md support instead of buttons
-- [ ] enable local storage to keep track for persistence
+- [ ] enable local storage for persistence
 - [x] add favicon and logo
-- [ ] deploy to netlify
+- [x] deploy to netlify
