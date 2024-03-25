@@ -14,7 +14,6 @@ const NoteForm = ({ onCreate }: NoteFormProps) => {
   const [title, setTitle] = useState("");
   const { editor } = useTipTapEditor();
 
-
   return (
     <Card>
       <CardHeader />

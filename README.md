@@ -36,4 +36,5 @@ The versatile note-taking app designed for seamless organization, collaboration,
   - [ ] add styles
   - [ ] enable md support instead of buttons
 - [ ] enable local storage to keep track for persistence
-- [ ] add favicon and logo
+- [x] add favicon and logo
+- [ ] deploy to netlify
