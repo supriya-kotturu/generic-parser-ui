@@ -30,7 +30,7 @@ export const useTipTapEditor = () => {
     editable: true,
     autofocus: true,
     editorProps: {
-      attributes: { class: "flex bg-red-300 flex-wrap w-full h-3/4" },
+      attributes: { class: "flex flex-wrap w-full" },
     },
     extensions,
     content,

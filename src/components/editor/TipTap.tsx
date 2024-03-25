@@ -10,10 +10,9 @@ const Tiptap = () => {
 
   return (
     <>
-      <MenuBar editor={editor} />
       <EditorContent editor={editor} />
-      <FloatingMenu editor={editor}>float</FloatingMenu>
-      <BubbleMenu editor={editor}>bubble</BubbleMenu>
+      <FloatingMenu editor={editor}><MenuBar editor={editor} /></FloatingMenu>
+      <BubbleMenu editor={editor}><MenuBar editor={editor} /></BubbleMenu>
     </>
   );
 };
