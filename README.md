@@ -6,30 +6,34 @@ The versatile note-taking app designed for seamless organization, collaboration,
 
 - Install the dependencies
   ```
-  pnpm install
+  npm install
   ```
 - Run the application
   ```
-  pnpm dev
+  npm dev
   ```
 - Build the application
   ```
-  pnpm build
+  npm build
   ```
 - Run the production build locally
   ```
-  pnpm preview
+  npm preview
   ```
 
-### TODO 
+### TODO
+
 - [x] install basic dependency and initial setup
-- [ ] add redux store
+- [x] add redux store
   - [x] add note reducer
-  - [ ] update note reducer
-  - [ ] delete note reducer
+  - [x] update note reducer
+  - [x] delete note reducer
 - [ ] add components
-  - [ ] new note
+  - [x] new note
   - [ ] notes list
-- [ ] add basic editor from novel.sh
+- [ ] add tipTap editor
+  - [x] add basic editor from novel.sh
+  - [ ] add styles
+  - [ ] enable md support instead of buttons
 - [ ] enable local storage to keep track for persistence
 - [ ] add favicon and logo
