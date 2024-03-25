@@ -3,6 +3,8 @@ import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
+import Tiptap from "./editor/TipTap";
+import { useTipTapEditor } from "./editor/useTipTapEditor";
 
 type NoteFormProps = {
   onCreate: ({ title, content }: { title: string; content: string }) => void;
@@ -10,7 +12,8 @@ type NoteFormProps = {
 
 const NoteForm = ({ onCreate }: NoteFormProps) => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const { editor } = useTipTapEditor();
+
 
   return (
     <Card>
@@ -22,29 +25,24 @@ const NoteForm = ({ onCreate }: NoteFormProps) => {
           </Label>
           <Input
             id="title"
+            type="text"
             placeholder="Mom's easy tax saving tips."
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
         </div>
-        <div className="flex items-center gap-4">
-          <Label className="w-[84px] text-left" htmlFor="description">
-            Description
-          </Label>
-          <Input id="descrition" placeholder="" />
-        </div>
+        <Tiptap />
       </CardContent>
       <CardFooter>
-        <Button className="w-full" onClick={() => onCreate({ title, content })}>
+        <Button
+          className="w-full"
+          onClick={() =>
+            onCreate({ title, content: editor ? editor.getHTML() : "no text" })
+          }
+        >
           SAVE NOTE
         </Button>
       </CardFooter>
-      NoteForm
-      <button
-        onClick={() => onCreate({ title: "test", content: "test content" })}
-      >
-        Create
-      </button>
     </Card>
   );
 };

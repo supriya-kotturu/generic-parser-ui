@@ -19,6 +19,7 @@ function App() {
     title: string;
     content: string;
   }) => {
+    console.log({ title, content });
     dispatch(addNote({ title, content }));
     setShowNoteForm(false);
   };
