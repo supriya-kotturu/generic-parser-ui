@@ -14,7 +14,7 @@ const notesSlice = createSlice({
   initialState: defaultNotes,
   reducers: {
     addNote(state, action: { payload: AddNotePayload; type: string }) {
-      state.push({
+      return state.concat({
         id: createId(),
         title: action.payload.title,
         createdTimestamp: Date.now(),
@@ -22,26 +22,22 @@ const notesSlice = createSlice({
       });
     },
     updateNote(state, action: { payload: UpdateNotePayload; type: string }) {
-      const updatedState = structuredClone(state);
-      const newNote = updatedState.filter(
-        (note) => note.id === action.payload.id,
-      )[0];
-      const noteId = updatedState.findIndex(
-        (note) => note.id === action.payload.id,
-      );
+      const { id, title, content } = action.payload;
 
-      newNote.title = action.payload.title;
-      newNote.content = action.payload.content;
-      newNote.updatedTimestamp = Date.now();
+      return state.map((note) => {
+        if (note.id !== id) return note;
 
-      updatedState[noteId] = newNote;
-      return updatedState;
+        return {
+          ...note,
+          title,
+          content,
+          updatedTimestamp: Date.now(),
+        };
+      });
     },
     deleteNote(state, action: { payload: DeletePayload; type: string }) {
-      const updatedState = structuredClone(state).filter(
-        (note) => note.id !== action.payload.id,
-      );
-      return updatedState;
+      console.log({ action, state });
+      return state.filter((note) => note.id !== action.payload.id);
     },
   },
 });

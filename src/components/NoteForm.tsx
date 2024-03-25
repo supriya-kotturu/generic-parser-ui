@@ -4,18 +4,17 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
 import Tiptap from "./editor/TipTap";
-import { useTipTapEditor } from "./editor/useTipTapEditor";
 import { Note } from "@/types";
 import { cn } from "@/lib/utils";
 
 type NoteFormProps = {
-  onCreate: ({ title, content }: { title: string; content: string }) => void;
+  onSubmit: ({ title, content }: { title: string; content: string }) => void;
   note?: Note;
 };
 
-const NoteForm = ({ onCreate, note }: NoteFormProps) => {
-  const [title, setTitle] = useState(note?.title);
-  const { editor } = useTipTapEditor();
+const NoteForm = ({ onSubmit, note }: NoteFormProps) => {
+  const [title, setTitle] = useState(note?.title || "");
+  const [content, setContent] = useState(note?.content || "");
 
   return (
     <Card>
@@ -33,14 +32,15 @@ const NoteForm = ({ onCreate, note }: NoteFormProps) => {
             value={title}
           />
         </div>
-        <Tiptap />
+        <Tiptap updateCb={setContent} content={content} />
       </CardContent>
       <CardFooter>
         <Button
           className="w-full"
-          onClick={() =>
-            onCreate({ title, content: editor ? editor.getHTML() : "no text" })
-          }
+          onClick={() => {
+            //TODO : update validation
+            onSubmit({ title, content });
+          }}
         >
           SAVE NOTE
         </Button>

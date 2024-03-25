@@ -28,14 +28,18 @@ The versatile note-taking app designed for seamless organization, collaboration,
   - [x] add note reducer
   - [x] update note reducer
   - [x] delete note reducer
-- [ ] add components
+- [x] add components
   - [x] new note
-  - [ ] notes list
-  - [ ] note form
-  - [ ] note
+  - [x] notes list
+  - [x] note form
+  - [x] edit note
+- [ ] performance
+  - [ ] add useMemo and debounce for editor
+  - [ ] add dynamic imports for conditionally rendered components
+  - [ ] remove unused packages
 - [ ] add tipTap editor
-  - [x] add basic editor from novel.sh
-  - [ ] add styles
+  - [x] add basic editor from tiptap
+  - [ ] add css to style editor extentions 
   - [ ] enable md support instead of buttons
 - [ ] enable local storage for persistence
 - [x] add favicon and logo

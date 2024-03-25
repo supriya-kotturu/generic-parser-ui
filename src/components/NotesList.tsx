@@ -1,21 +1,32 @@
 import parse from "html-react-parser";
-import { updateNote } from "@/store/features/notes/noteSlice";
-import { useAppDispatch } from "@/store/hooks";
 import { Note } from "@/types";
 
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import { Button } from "./ui/button";
 
-type NotesListProps = {
-  notes: Note[];
+type NoteItem = Note & {
+  onEdit: () => void;
+  onDelete: () => void;
 };
 
-const NoteItem = ({ title, content, createdTimestamp }: Note) => {
+type NotesListProps = {
+  notes: NoteItem[];
+};
+
+const NoteItem = ({
+  title,
+  content,
+  createdTimestamp,
+  onEdit,
+  onDelete,
+}: NoteItem) => {
   const createdOn = new Date(createdTimestamp).toLocaleString();
 
   return (
@@ -25,24 +36,19 @@ const NoteItem = ({ title, content, createdTimestamp }: Note) => {
         <CardDescription>{createdOn}</CardDescription>
       </CardHeader>
       <CardContent>{parse(content)}</CardContent>
+      <CardFooter className="gap-2">
+        <Button size="icon" variant="outline" onClick={onEdit}>
+          <span className="material-symbols-outlined">edit_note</span>
+        </Button>
+        <Button size="icon" variant="outline" onClick={onDelete}>
+          <span className="material-symbols-outlined">delete</span>
+        </Button>
+      </CardFooter>
     </Card>
   );
 };
 
 const NotesList = ({ notes }: NotesListProps) => {
-  const dispatch = useAppDispatch();
-
-  const editNote = ({
-    id,
-    title,
-    content,
-  }: {
-    id: string;
-    title: string;
-    content: string;
-  }) => dispatch(updateNote({ id, title, content }));
-
-  console.log({ notes, editNote });
   return (
     <div>
       {notes.map((note) => (

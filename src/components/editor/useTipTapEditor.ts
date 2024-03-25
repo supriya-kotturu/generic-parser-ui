@@ -1,14 +1,17 @@
 import Highlight from "@tiptap/extension-highlight";
 import Typography from "@tiptap/extension-typography";
-import { Color } from "@tiptap/extension-color";
-import ListItem from "@tiptap/extension-list-item";
-import TextStyle from "@tiptap/extension-text-style";
+// import { Color } from "@tiptap/extension-color";
+// import ListItem from "@tiptap/extension-list-item";
+// import TextStyle from "@tiptap/extension-text-style";
 import StarterKit from "@tiptap/starter-kit";
 import { useEditor } from "@tiptap/react";
 
-export const useTipTapEditor = () => {
+export const useTipTapEditor = (
+  updateCb: (str: string) => void,
+  content: string,
+) => {
   const extensions = [
-    Color.configure({ types: [TextStyle.name, ListItem.name] }),
+    // Color.configure({ types: [TextStyle.name, ListItem.name] }),
     // TextStyle.configure({ types: [ListItem.name] }),
     StarterKit.configure({
       bulletList: {
@@ -23,12 +26,11 @@ export const useTipTapEditor = () => {
     Highlight,
     Typography,
   ];
-  const content =
-    "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam minus nisi in facere minima rerum modi assumenda id repellat! Inventore officiis officia consectetur molestiae ducimus similique enim eos beatae vel!</p>";
 
   const editor = useEditor({
     editable: true,
     autofocus: true,
+    onUpdate: ({ editor }) => updateCb(editor.getHTML()),
     editorProps: {
       attributes: { class: "flex flex-wrap w-full" },
     },

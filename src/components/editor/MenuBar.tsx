@@ -54,7 +54,7 @@ export const MenuBar = ({ editor }: { editor?: Editor }) => {
           icon: "redo",
         },
       ] as Action[],
-    []
+    [],
   );
 
   return (
