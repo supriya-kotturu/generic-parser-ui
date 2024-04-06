@@ -1,6 +1,6 @@
-# Notebook
+# Generic Parser - UI
 
-The versatile note-taking app designed for seamless organization, collaboration, and creativity. With flexible notes, robust organization, effortless collaboration, and stringent security, Notebook is your all-in-one digital workspace. Elevate your productivity with [Notebook](https://quick-notebook.netlify.com) today!
+The versatile note-taking app designed for seamless organization, collaboration, and creativity. With flexible notes, robust organization, effortless collaboration, and stringent security, Notebook is your all-in-one digital workspace. Elevate your productivity with [Notebook](https://quick-notebook.netlify.com
 
 ## Getting started
 
@@ -23,24 +23,13 @@ The versatile note-taking app designed for seamless organization, collaboration,
 
 ### TODO
 
-- [x] install basic dependency and initial setup
-- [x] add redux store
-  - [x] add note reducer
-  - [x] update note reducer
-  - [x] delete note reducer
+- [x] install basic dependency and initial set up
 - [x] add components
-  - [x] new note
-  - [x] notes list
-  - [x] note form
-  - [x] edit note
+  - [x] add Basic Monaco editor
 - [ ] performance
   - [ ] add useMemo and debounce for editor
   - [ ] add dynamic imports for conditionally rendered components
   - [ ] remove unused packages
-- [ ] add tipTap editor
-  - [x] add basic editor from tiptap
-  - [ ] add css to style editor extentions 
-  - [ ] enable md support instead of buttons
-- [ ] enable local storage for persistence
 - [x] add favicon and logo
 - [x] deploy to netlify
+- [ ] integrate API to parse the json

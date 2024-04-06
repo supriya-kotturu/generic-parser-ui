@@ -12,22 +12,21 @@ const parseJSON = (config: string, input: string) => {
 
   Object.keys(objConfig).forEach((key) => {
     if (objInput[key] === undefined) throw new Error("Input data does not have a key that is not in the config");
-    else resObject[key] = objInput[key];
+    else { resObject[key] = objInput[key]; }
   })
 
   return resObject;
 }
 
-const parseXML = (config: string, input: string) => {
-}
 
 
 
-export const parseData = (config: string, input: string, type: "xml" | "json") => {
+export const parseData = (config: string, input: string, type: "json" | 'xml') => {
   let result, error
 
+  console.log({ type })
   try {
-    result = type === "xml" ? parseXML(config, input) : parseJSON(config, input);
+    result = parseJSON(config, input);
   } catch (err) {
     error = err
   }
